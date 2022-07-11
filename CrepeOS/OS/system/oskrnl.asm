@@ -2,7 +2,7 @@
 
 	BITS 16
 
-	%DEFINE CREPEOS_VER 'v0.6b1'	; OS version number
+	%DEFINE CREPEOS_VER 'v0.6b2'	; OS version number
 	%DEFINE CREPEOS_API_VER 17	; API version for programs to check
 
 
@@ -88,6 +88,8 @@ os_call_vectors:
 	jmp os_port_byte_out		; 00C9h
 	jmp os_port_byte_in		; 00CCh
 	jmp os_string_tokenize		; 00CFh
+	jmp os_crash_handle		; 00D2h
+	jmp os_draw_back_crash		; 00D5h
 
 
 ; ------------------------------------------------------------------
@@ -170,7 +172,7 @@ option_screen:
 	call os_draw_block		; Draw option selector window
 	mov ax, os_init_msg		; Set up the welcome screen
 	mov bx, os_version_msg
-	mov cx, 10011001b		; Colour: black and white 
+	mov cx, 00101001b		; Colour: black and white 
 	call os_draw_background
 
 	mov ax, dialog_string_1		; Ask if user wants app selector or command-line
@@ -201,7 +203,7 @@ option_screen:
 
     
 	
-	os_init_msg	    	db '| CrepeOS System |--------------------------------------------------| ', CREPEOS_VER, ' |', 0
+	os_init_msg	    	db ' << CrepeOS System >>                                                | ', CREPEOS_VER, ' |', 0
 	os_version_msg		db '                      ', 0
 
 	dialog_string_1		db '<< CrepeOS System Menu >>=============|', 0
@@ -213,7 +215,7 @@ option_screen:
 app_selector:
 	mov ax, os_init_msg		; Draw main screen layout
 	mov bx, os_version_msg
-	mov cx, 10010111b		; Colour: black and white
+	mov cx, 00100000b		; Colour: black and white
 	call os_draw_background
 
 	call os_file_selector		; Get user to select a file, and store
@@ -351,7 +353,7 @@ not_bas_extension:
 
 	ext_string_1		db '<< Error >>===========================|', 0
 	ext_string_2		db 'You can only execute files with .BIN or', 0
-    ext_string_3        db '.BAS extensions.', 0
+   	ext_string_3       	db '.BAS extensions.', 0
 
 
 ; ------------------------------------------------------------------

@@ -114,7 +114,7 @@ main_loop:
 	input		times 255 db 0	; Code entered by user (in ASCII)
 	run		times 255 db 0	; Translated machine code to execute
 
-	helpmsg1	db 'CREPEOS MACHINE CODE MONITOR v0.5.3', 10, 13, 0
+	helpmsg1	db 'CREPEOS MACHINE CODE MONITOR v0.6b2', 10, 13, 0
 	helpmsg2	db '(See the CrepeOS Manual for a quick guide)', 13, 10, 13, 10, 0
 	helpmsg3	db 'Enter instructions in hex, terminated by $ character', 10, 13, 0
 	helpmsg4	db 'Commands: r = re-run previous code, x = exit', 10, 13, 0

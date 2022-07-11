@@ -108,7 +108,7 @@ mount -t msdos "$dev" "$tmp_file"
 [ $? -ne 0 ] && echo "[halt] could not mount "$dev"" >&2 && exit 1
 
 cp system/oskrnl.bin "$tmp_file/"
-cp program/*.bin program/*.bas program/*.dat program/*.hex "$tmp_file"
+cp program/*.bin program/*.bas program/*.txt other/*.* "$tmp_file"
 echo "[okay] added programs to image"
 
 diskutil umount "$tmp_file"
@@ -122,4 +122,4 @@ echo "[okay] converted floppy to ISO-8859-1 image"
 echo "[done] build completed"
 echo -e '[done] starting CrepeOS now via QEMU...'
 cd image
-qemu-system-x86_64 -cdrom crepeos.iso
+qemu-system-x86_64 -cdrom crepeos.iso 

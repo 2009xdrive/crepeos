@@ -2,7 +2,7 @@
 ; OS shutdown program for CrepeOS
 
     org 0x7c00
-    jmp os_shutdown  ; Jumps to the code that will prepare for power off
+    jmp os_shutdown
 
 os_shutdown:
     mov ax, 0x1000

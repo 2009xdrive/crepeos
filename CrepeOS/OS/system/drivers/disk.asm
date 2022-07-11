@@ -151,7 +151,7 @@ os_load_file:
 	jnc .floppy_ok			; Did the floppy reset OK?
 
 	mov ax, .err_msg_floppy_reset	; If not, bail out
-	jmp os_fatal_error
+	call os_crash_handle
 
 
 .floppy_ok:				; Ready to read first block of data
@@ -180,6 +180,7 @@ os_load_file:
 
 	popa
 	jmp .root_problem		; Double error = exit
+	call os_crash_handle
 
 .search_root_dir:
 	popa
@@ -223,6 +224,7 @@ os_load_file:
 .root_problem:
 	mov bx, 0			; If file not found or major disk error,
 	stc				; return with size = 0 and carry set
+	call os_crash_handle
 	ret
 
 
@@ -286,7 +288,7 @@ os_load_file:
 	jnc .load_file_sector
 
 	mov ax, .err_msg_floppy_reset	; Reset failed, bail out
-	jmp os_fatal_error
+	jmp os_crash_handle
 
 
 .calculate_next_cluster:
@@ -1035,6 +1037,7 @@ int_filename_convert:
 .failure:
 	popa
 	stc				; Set carry for failure
+	call os_crash_handle
 	ret
 
 

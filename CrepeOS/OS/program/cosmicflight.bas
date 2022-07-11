@@ -1,5 +1,5 @@
 rem Cosmic Flight (CF.BAS)
-rem version 0.6b1
+rem version 0.6b2
 
 goto start
     
