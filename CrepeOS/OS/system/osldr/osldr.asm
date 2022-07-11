@@ -324,7 +324,7 @@ l2hts:			; Calculate head, track and sector settings for int 13h
 	kern_filename	db "OSKRNL  BIN"	
 
 	disk_error	db "[X] Disk Fault", 0
-	file_not_found	db "[X] File missing", 0
+	file_not_found	db "[X] File Missing", 0
     startup_msg  db "[/] Booting CrepeOS", 0
 
 	bootdev		db 0 	; Boot device number

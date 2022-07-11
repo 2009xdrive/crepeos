@@ -470,6 +470,7 @@ del_file:
 .failure:
 	mov si, .failure_msg
 	call os_print_string
+	call os_crash_handle
 	jmp get_cmd
 
 
@@ -1035,7 +1036,7 @@ exit:
 	logo_line3 db '| |   |  __/ _ \  _ \ / _ \ | | \___ \', 13, 10, 0
 	logo_line4 db '| |___| | |  __/ |_) |  __/ |_| |___) |', 13, 10, 0
 	logo_line5 db ' \____|_|  \___| .__/ \___|\___/|____/ ', 13, 10, 0
-	logo_line6 db '               |_|              v0.6b1', 13, 10, 0
+	logo_line6 db '               |_|              v0.6b2', 13, 10, 0
 	
 	underline db '=============================================', 13, 10, 0
 

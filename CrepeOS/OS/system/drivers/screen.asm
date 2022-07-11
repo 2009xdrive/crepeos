@@ -576,7 +576,7 @@ os_draw_background:
 	mov ah, 09h			; Draw white bar at bottom
 	mov bh, 0
 	mov cx, 80
-	mov bl, 00001111b
+	mov bl, 00100000b
 	mov al, ' '
 	int 10h
 
@@ -601,6 +601,66 @@ os_draw_background:
 	popa
 	ret
 
+os_draw_back_crash:
+	pusha
+
+	push ax				; Store params to pop out later
+	push bx
+	push cx
+
+	mov dl, 0
+	mov dh, 0
+	call os_move_cursor
+
+	mov ah, 09h			; Draw white bar at top
+	mov bh, 0
+	mov cx, 80
+	mov bl, 00010000b
+	mov al, ' '
+	int 10h
+
+	mov dh, 1
+	mov dl, 0
+	call os_move_cursor
+
+	mov ah, 09h			; Draw colour section
+	mov cx, 1840
+	pop bx				; Get colour param (originally in CX)
+	mov bh, 0
+	mov al, ' '
+	int 10h
+
+	mov dh, 24
+	mov dl, 0
+	call os_move_cursor
+
+	mov ah, 09h			; Draw white bar at bottom
+	mov bh, 0
+	mov cx, 80
+	mov bl, 00010000b
+	mov al, ' '
+	int 10h
+
+	mov dh, 24
+	mov dl, 1
+	call os_move_cursor
+	pop bx				; Get bottom string param
+	mov si, bx
+	call os_print_string
+
+	mov dh, 0
+	mov dl, 1
+	call os_move_cursor
+	pop ax				; Get top string param
+	mov si, ax
+	call os_print_string
+
+	mov dh, 1			; Ready for app text
+	mov dl, 0
+	call os_move_cursor
+
+	popa
+	ret
 
 ; ------------------------------------------------------------------
 ; os_print_newline -- Reset cursor to start of next line
@@ -878,7 +938,7 @@ os_dialog_box:
 	mov si, .ok_button_string
 	call os_print_string
 
-	mov bl, 10011111b		; White on red for cancel button
+	mov bl, 01001111b		; White on red for cancel button
 	mov dh, 14
 	mov dl, 42
 	mov si, 9
@@ -900,7 +960,7 @@ os_dialog_box:
 	jne .noright
 
 
-	mov bl, 10011111b		; Black on white
+	mov bl, 01001111b		; Black on white
 	mov dh, 14
 	mov dl, 27
 	mov si, 8
@@ -1226,4 +1286,17 @@ os_input_string:
 
 
 ; ==================================================================
+os_crash_handle:
 
+	mov cx, 00010000b
+	call os_draw_back_crash
+	mov ax, stop_str
+
+	call os_print_1hex
+	call os_print_2hex
+	call os_print_4hex
+		
+	call os_dump_registers
+
+
+	stop_str	db 'An error occurred. Please restart your computer.', 0

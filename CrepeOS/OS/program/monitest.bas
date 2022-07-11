@@ -38,7 +38,7 @@ CLS
 CURSOR ON
 MOVE 16 1
 PRINT "Full pattern generator to test CRT type monitors."
-MOVE 10 2
+MOVE 16 2
 PRINT "(C)2022 CrepeOS."
 MOVE 30 4
 PRINT "X) Centre Cross..."
@@ -107,7 +107,7 @@ REM End of keyboardhold loop.
 
 
 cleanexit:
-REM Clean exit to MikeOS.
+REM Clean exit to CrepeOS.
 CLS
 END
 REM End of program...

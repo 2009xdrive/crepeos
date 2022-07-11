@@ -1,6 +1,6 @@
 REM >>>CRBASIC-LIBRARY<<<
 REM Library Version 1.1
-REM OS VERSION: CrepeOS v0.6b1
+REM OS VERSION: CrepeOS v0.6b2
 
 PRINT "CrBASIC Library version 1.0"
 END

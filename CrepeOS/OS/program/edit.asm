@@ -846,7 +846,7 @@ showbytepos:
 
 ; ------------------------------------------------------------------
 ; Data section
-	txt_title_msg	db '| CrepeOS Edit |---------------------------------------------| Version 0.6b1|', 0
+	txt_title_msg	db '| CrepeOS Edit |----------------------------------------------------| v0.6b2|', 0
 	txt_footer_msg	db '[Esc] Quit  [F1] Help  [F2] Save  [F3] New  [F5] Delete line  [F8] Run BASIC', 0
 
 	txt_extension	db 'TXT', 0

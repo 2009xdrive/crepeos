@@ -1,41 +1,27 @@
-YODA - CHANGE LOG (BETA 1.1)
-====================
+v0.6b1 change log (via GitHub):
+Bug fixes. (obviously)
+Added Mac build script. This allows Mac users to be able 
+to build CrepeOS.
+New naming scheme. (IMPORTANT) Releases from here on out 
+will be numbered as follows:
+"v0.6" (the feature update version, if this changes that 
+indicates a major update somewhere.)
+"b1" (the beta update number. When released and a separate 
+beta update channel is created, will increment until the 
+final update release. Such as: v1.1, v1.2b1, v1.2b2, continuing 
+for however many betas there are, v1.2 final release. During 
+prerelease, or versions that begin with 0 such as v0.6, 
+there is no "final release", there will only be betas. 
+Don't expect a "v0.6" without a beta tag.)
+Working on implementing a new text editor called VEdit. 
+Warning that it is broken as of this release and should be fixed 
+by v0.7b1.
+New debug tool MONITEST. This is self-explanatory and tests your screen.
+New BASIC programs.
 
-New prompt 
-Refresh bottom and top bar
-Bug Fixes 
-Changes Colors
-
-
-BUGS
-======
-Some programs are broken
-Calculator paifully slow
-
-==================== BETA 1.2 CHANGE LOG BY 2009xdrive ====================
-- Reworked the system file structure
-- ASMCODE has been reworked to the program folder, as it has .asm
-autodetect
-- Shortened the CREPEOS_LIVE:~$ to CREPEOS:~$
-Removed the "64bit" marking and replaced it with the version number + b1 
-to indicate OS Beta 1
-- Made this change log appear in the file system
-- OSStart.sh now starts QEMU when finished building, and backs up the 
-old disk images for data preservation. You can revert to the previous
-saved image ushing the script in OS/recovery.
----------------------------------------------------------------------------
-Other Notes:
-- Calculator is written in CrBASIC, which is a form of BASIC, which
-explains why it is slow. I will include a .BIN version of the
-calculator, which should run worlds faster.
-- CrepeOS is run in 16bit "real mode", which is why I removed the "64bit"
-marking. 
-- Some programs are broken, because they are meant to be run from EDIT.BIN.
-The .BAS programs, open them in the editor, and press F8 to run them in the
-inbuilt BASIC interpreter. Or, run them from the CLI to see if they give an
-error, or require arguments.
-- I tried on the real-time clock, and failed sadly. Note that there already
-is a DATE and TIME command that returns the date and time respectively in 
-the command line already. For now, the top bar is the currently running 
-application name.
-============================================================================
+v0.6b2 change log:
+Fixed files not being added to the boot disk.
+Fixed the Mac build script.
+Fixed a majority of issues with VEdit.
+Updated version numbers and formatting in title bars.
+Changed background from light blue to dark green.

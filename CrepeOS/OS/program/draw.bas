@@ -92,7 +92,7 @@ render_image:
   
   w = m + 200
   string load $4 w
-  $5 = "ASCII Artist - " + $4
+  $5 = "CrepeOS Artist - " + $4
   gosub settitle
   
   w = d

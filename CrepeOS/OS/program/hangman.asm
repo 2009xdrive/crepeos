@@ -514,8 +514,8 @@ show_hangman:
 
 
 
-	title_msg	db '| CrepeOS Hangman |------------------------------------| Version 0.5.3 Alpha |', 0
-	footer_msg	db '|-----------------------------|Press Esc to exit|----------------------------|', 0
+	title_msg	db '| CrepeOS Hangman |-------------------------------------------------| v0.6b2 |', 0
+	footer_msg	db '|--------------------------|Press Esc to quit game|--------------------------|', 0
 
 	hint_msg_1	db 'Short word this time, so you', 0
 	hint_msg_2	db 'get the first letter for free!', 0

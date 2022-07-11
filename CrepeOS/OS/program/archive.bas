@@ -324,7 +324,7 @@ help:
   print "============================"
   print "ARCHIVE: File archiving tool"
   print "============================"
-  print "Version 1.0"
+  print "v0.6b2"
   print ""
   print "Syntax: ARCHIVE (command) (archive filename) [comma separated list]"
   print ""

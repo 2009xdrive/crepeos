@@ -1,6 +1,6 @@
 rem Calculator Application (CALC.BAS)
 rem A simple calculator application.
-rem Version 0.6b1
+rem Version 0.6b2
 INCLUDE "CRBASIC.BAS"
 
 START:
@@ -233,10 +233,7 @@ ABOUT:
   REM About message (strings have an 128 character limit)
   MOVE 0 0
   $5 = "About"
-       $6 = "Calculator, version 2.1.0|"
-  $6 = $6 + "An advanced calculator application|"
-  $6 = $6 + "Released under the GNU GPL v3|\7"
-       $7 = "Written in CBASIC|"
-  $7 = $7 + "Uses the MB++ Library, version 4.0"
+       $6 = "Calculator, v0.6b2|"
+  $6 = $6 + "The advanced calculator application|"
   GOSUB MESBOX
 RETURN
