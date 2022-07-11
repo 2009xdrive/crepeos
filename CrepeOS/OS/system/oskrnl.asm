@@ -2,7 +2,7 @@
 
 	BITS 16
 
-	%DEFINE CREPEOS_VER '0.5.3 Alpha'	; OS version number
+	%DEFINE CREPEOS_VER 'v0.6b1'	; OS version number
 	%DEFINE CREPEOS_API_VER 17	; API version for programs to check
 
 
@@ -201,7 +201,7 @@ option_screen:
 
     
 	
-	os_init_msg	    	db '| CrepeOS System |----------------------------------------| Version ', CREPEOS_VER, ' |', 0
+	os_init_msg	    	db '| CrepeOS System |--------------------------------------------------| ', CREPEOS_VER, ' |', 0
 	os_version_msg		db '                      ', 0
 
 	dialog_string_1		db '<< CrepeOS System Menu >>=============|', 0

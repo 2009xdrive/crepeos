@@ -1035,7 +1035,7 @@ exit:
 	logo_line3 db '| |   |  __/ _ \  _ \ / _ \ | | \___ \', 13, 10, 0
 	logo_line4 db '| |___| | |  __/ |_) |  __/ |_| |___) |', 13, 10, 0
 	logo_line5 db ' \____|_|  \___| .__/ \___|\___/|____/ ', 13, 10, 0
-	logo_line6 db '               |_|  ', 13, 10, 0
+	logo_line6 db '               |_|              v0.6b1', 13, 10, 0
 	
 	underline db '=============================================', 13, 10, 0
 
@@ -1054,7 +1054,7 @@ exit:
 	list_string		db 'LS', 0
 
 	kern_file_string	db 'OSKRNL', 0
-	kern_warn_msg		db 'Kernel is already running! A second intance would break the OS', 13, 10, 0
+	kern_warn_msg		db 'Kernel is already running! A second instance would break the OS', 13, 10, 0
 
 
 ; ==================================================================
