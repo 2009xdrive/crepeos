@@ -846,12 +846,12 @@ showbytepos:
 
 ; ------------------------------------------------------------------
 ; Data section
-	txt_title_msg	db '| CrepeOS Edit |-----------------------------------------| Version 0.1 Alpha |', 0
+	txt_title_msg	db '| CrepeOS Edit |---------------------------------------------| Version 0.6b1|', 0
 	txt_footer_msg	db '[Esc] Quit  [F1] Help  [F2] Save  [F3] New  [F5] Delete line  [F8] Run BASIC', 0
 
 	txt_extension	db 'TXT', 0
 	bas_extension	db 'BAS', 0
-	wrong_ext_msg_1	db '|=============/!\ Error===============|', 0
+	wrong_ext_msg_1	db '|<< Error >> =========================|', 0
     wrong_ext_msg_2 db 'You can only edit .TXT or .BAS files.', 0
 	confirm_msg	db 'Are you sure? Any unsaved data will be LOST.', 0
 

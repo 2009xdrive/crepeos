@@ -1,2 +1,2 @@
-This is where externel drivers will be located, if you are a developer and would like to implement your own drivers.
+This is where external drivers will be located, if you are a developer and would like to implement your own drivers.
 Add your driver using %INCLUDE drivers/extdrv/yourdriver.asm at the bottom of oskrnl.asm.
