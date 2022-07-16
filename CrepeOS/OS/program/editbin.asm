@@ -1072,7 +1072,7 @@ print_nchars:
     ret
 
 ;==========================================================
-title_msg     db "Edit Binary v0.6b2 (c)2022 CrepeOS",0
+title_msg     db "Edit Binary v0.6b3 (c)2022 CrepeOS",0
 footer_msg    db "[ESC]exit [DIR KEYS]navigate sector [PGDN]next sector [PGUP]prev sector",0
 footer_select_msg db "Select file or [ESC] to exit",0
 

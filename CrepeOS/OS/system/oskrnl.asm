@@ -2,7 +2,7 @@
 
 	BITS 16
 
-	%DEFINE CREPEOS_VER 'v0.6b2'	; OS version number
+	%DEFINE CREPEOS_VER 'v0.6b3'	; OS version number
 	%DEFINE CREPEOS_API_VER 17	; API version for programs to check
 
 
@@ -90,12 +90,16 @@ os_call_vectors:
 	jmp os_string_tokenize		; 00CFh
 	jmp os_crash_handle		; 00D2h
 	jmp os_draw_back_crash		; 00D5h
+	jmp os_shutdown			; 00D8h
 
 
 ; ------------------------------------------------------------------
 ; START OF MAIN KERNEL CODE
 
-os_main:
+os_main:	
+	mov si, krnl_start_msg
+	call os_print_string
+
 	cli				; Clear interrupts
 	mov ax, 0
 	mov ss, ax			; Set stack segment and pointer
@@ -123,6 +127,8 @@ os_main:
 	movzx dx, dh			; Maximum head number
 	add dx, 1			; Head numbers start at 0 - add 1 for total
 	mov [Sides], dx
+
+	call os_clear_screen
 
 no_change:
 	mov ax, 1003h			; Set text output with certain attributes
@@ -281,8 +287,8 @@ no_kernel_execute:			; Warn about trying to executing kernel!
 	mov ax, kerndlg_string_1
 	mov bx, kerndlg_string_2
 	mov cx, kerndlg_string_3
-	mov dx, 0			; One button for dialog box
-	call os_dialog_box
+	mov dx, 0
+	call os_dialog_box		; One button for dialog box
 
 	jmp app_selector		; Start over again...
 
@@ -347,13 +353,15 @@ not_bas_extension:
 	bin_ext			db 'BIN'
 	bas_ext			db 'BAS'
 
-	kerndlg_string_1	db '<< Error >>===========================|', 0
+	kerndlg_string_1	db '<< Error >> ==========================|', 0
 	kerndlg_string_2	db 'OSKRNL.BIN is the CrepeOS system', 0
 	kerndlg_string_3	db 'kernel and cannot be run as a program.', 0
 
-	ext_string_1		db '<< Error >>===========================|', 0
+	ext_string_1		db '<< Error >> ==========================|', 0
 	ext_string_2		db 'You can only execute files with .BIN or', 0
    	ext_string_3       	db '.BAS extensions.', 0
+
+	krnl_start_msg		db 'OSKRNL.BIN: Starting CrepeOS v0.6b3...', 0
 
 
 ; ------------------------------------------------------------------
@@ -383,5 +391,5 @@ not_bas_extension:
 	%INCLUDE "drivers/sound.asm"
 	%INCLUDE "drivers/string.asm"
 	%INCLUDE "drivers/basic.asm"
-
+	%INCLUDE "drivers/acpi.asm"
 

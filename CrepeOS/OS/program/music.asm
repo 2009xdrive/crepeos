@@ -383,7 +383,7 @@ start:
 	ret			; Back to OS
 
 
-	mus_kbd_title_msg	db '| CrepeOS Music |---------------------------------------------------| v0.6b2 |', 0
+	mus_kbd_title_msg	db '| CrepeOS Music |---------------------------------------------------| v0.6b3 |', 0
 	mus_kbd_footer_msg	db 'Hit keys to play notes, space to silence a note, and Esc to quit.', 0
 
 

@@ -615,7 +615,7 @@ os_draw_back_crash:
 	mov ah, 09h			; Draw white bar at top
 	mov bh, 0
 	mov cx, 80
-	mov bl, 00010000b
+	mov bl, 00010001b
 	mov al, ' '
 	int 10h
 
@@ -637,7 +637,7 @@ os_draw_back_crash:
 	mov ah, 09h			; Draw white bar at bottom
 	mov bh, 0
 	mov cx, 80
-	mov bl, 00010000b
+	mov bl, 00010001b
 	mov al, ' '
 	int 10h
 
@@ -1288,15 +1288,13 @@ os_input_string:
 ; ==================================================================
 os_crash_handle:
 
-	mov cx, 00010000b
+	mov cx, 00011111b
 	call os_draw_back_crash
 	mov ax, stop_str
+	mov si, stop_str
+	call os_print_string
 
-	call os_print_1hex
-	call os_print_2hex
-	call os_print_4hex
-		
 	call os_dump_registers
+	call os_shutdown
 
-
-	stop_str	db 'An error occurred. Please restart your computer.', 0
+	stop_str	db 'A fatal system error occurred. This may have been caused by a faulty program, ora corrupted system. Press CTRL-ALT-DEL to restart. Technical info: ', 0
