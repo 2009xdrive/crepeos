@@ -6,7 +6,7 @@ if test "`whoami`" != "root" ; then
     exit
 fi
 
-echo "Welcome to the CrepeOS v0.6b1 builder."
+echo "Welcome to the CrepeOS v0.6b3 builder."
 echo "WARNING. If you have data saved on the CrepeOS image, make a copy of the image now. Pressing any key will replace the installation with a fresh new one. If you have the file saved elsewhere, place it into the 'other' folder to include it on your new installation. Please back up any data you would like to keep NOW."
 read -n 1 -s -r -p "Press any key to continue."
 

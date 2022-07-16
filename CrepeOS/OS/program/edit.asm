@@ -846,13 +846,13 @@ showbytepos:
 
 ; ------------------------------------------------------------------
 ; Data section
-	txt_title_msg	db '| CrepeOS Edit |----------------------------------------------------| v0.6b2|', 0
+	txt_title_msg	db '| CrepeOS Edit |----------------------------------------------------| v0.6b3 |', 0
 	txt_footer_msg	db '[Esc] Quit  [F1] Help  [F2] Save  [F3] New  [F5] Delete line  [F8] Run BASIC', 0
 
 	txt_extension	db 'TXT', 0
 	bas_extension	db 'BAS', 0
 	wrong_ext_msg_1	db '|<< Error >> =========================|', 0
-    wrong_ext_msg_2 db 'You can only edit .TXT or .BAS files.', 0
+   	wrong_ext_msg_2 db 'You can only edit .TXT or .BAS files.', 0
 	confirm_msg	db 'Are you sure? Any unsaved data will be LOST.', 0
 
 	file_load_fail_msg	db 'Could not load file. Does it exist?', 0

@@ -1,7 +1,7 @@
                         Line Editor
    ----------------------------------------------------------
     CrepeOS VEdit, based on the Unix VI visual editor.
-        Version: v0.6b2
+        Version: v0.6b3
 
                      i = Insert text Mode
                      r = Replace text Mode

@@ -224,7 +224,6 @@ os_load_file:
 .root_problem:
 	mov bx, 0			; If file not found or major disk error,
 	stc				; return with size = 0 and carry set
-	call os_crash_handle
 	ret
 
 
@@ -858,6 +857,7 @@ os_remove_file:
 .failure:
 	popa
 	stc
+	call os_crash_handle
 	ret
 
 
@@ -1037,7 +1037,6 @@ int_filename_convert:
 .failure:
 	popa
 	stc				; Set carry for failure
-	call os_crash_handle
 	ret
 
 

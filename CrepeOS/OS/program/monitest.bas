@@ -36,9 +36,9 @@ n = 1
 REM Set up the main screen here.
 CLS
 CURSOR ON
-MOVE 16 1
-PRINT "Full pattern generator to test CRT type monitors."
-MOVE 16 2
+MOVE 12 1
+PRINT "MONITEST v0.6b3: Full pattern generator to test screens."
+MOVE 31 2
 PRINT "(C)2022 CrepeOS."
 MOVE 30 4
 PRINT "X) Centre Cross..."

@@ -266,7 +266,7 @@ start:
 	.help_msg1		db 'Select a file operation to perform,', 0
 	.help_msg2		db 'or press the Esc key to exit...', 0
 
-	.title_msg		db '| CrepeOS Files |-------------------------------------------------| v0.6b2 |', 0
+	.title_msg		db '| CrepeOS Files |-------------------------------------------------| v0.6b3 |', 0
 	.footer_msg		db 'Copy, rename and delete files, as well as get size and disk info.', 0
 
 	.label_string_text	db 'Filesystem label: ', 0
