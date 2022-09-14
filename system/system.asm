@@ -401,7 +401,7 @@ checkformenuloop:
 	je near load_fileman		; Open the file manager
 	jmp checkformenuloop
 	
-	ver_msg			db '                                                              v0.7b1',0
+	ver_msg			db '                                                              v0.7b2',0
 	passwordmsg		db 'Press any key to log in...', 0
 	passentermsg		db 'Enter your password: ', 0
 
@@ -788,7 +788,7 @@ systemfilemissing:
 	empty_string			db 0
 	
 	menuoptions				db 'Programs,Games,Log out,Shut down', 0
-	gameoptions				db 'Cosmic Flight,Hangman,Snake', 0
+	gameoptions				db 'Cosmic Flight,Hangman,Tetris', 0
 	debugoptions			db 'Disk detection test,Keyboard tester,RTC clock tester,Disk Sector inspector,Memory editor,Boxes,Dots,TSC register tester,TV static generator (CGA)', 0
 	progoptions				db 'File manager,Text editor,Image viewer,Calculator,Clock,Terminal,Settings,ASCII art editor,Pixel art editor,Music player,Hardware checker,Other stuff...', 0
 	

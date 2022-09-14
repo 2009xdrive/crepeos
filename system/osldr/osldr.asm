@@ -340,10 +340,10 @@ l2hts:			; Calculate head, track and sector settings for int 13h
 
 	kern_filename	db "CREPEOS SYS"	; CrepeOS Kernel
 
-	disk_error	db "DRV", 0
-	file_not_found	db "ERR", 0
-	boot_complete	db "OK", 0
-;	boot_fail	db "E03", 0
+	disk_error	db "E0D", 0
+	file_not_found	db "E0F", 0
+	boot_complete	db "Starting CrepeOS...", 0
+;	boot_fail	db "E1F", 0
 	
 	bootdev		db 0 	; Boot device number
 	cluster		dw 0 	; Cluster of the file we want to load
