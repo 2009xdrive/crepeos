@@ -132,7 +132,7 @@ os_shutdown:
 	call os_move_cursor
 	
 	mov ax, 0920h
-	mov bx, 112			; Black on gray
+	mov bx, [57001]
 	mov cx, 80
 	int 10h
 	
@@ -147,7 +147,7 @@ os_shutdown:
 	
 	mov dx, 24 * 256
 	call os_move_cursor
-	mov bl, 112			; Black on gray
+	mov bl, [57001]
 	mov cx, 80
 	mov al, 32
 	int 10h
@@ -259,7 +259,7 @@ os_shutdown:
 	.dbgmsg4	db 'Enabling power management...', 13, 10, 0
 	.dbgmsg5	db 'Shutting down...', 13, 10, 0
 	
-	.logo0		db 218, 196, 196, 179, 196, 196, 191, '  Shut down the computer         ', 0
-	.logo1		db 179, 32, 32, 179, 32, 32, 179,     '  Soft reboot the computer       ', 0
+	.logo0		db 218, 196, 196, 179, 196, 196, 191, '  Shut down your computer        ', 0
+	.logo1		db 179, 32, 32, 179, 32, 32, 179,     '  Restart your computer          ', 0
 	.logo2		db 179, 32, 32, 32, 32, 32, 179,      '  Go back                        ', 0
 	.logo3		db 192, 196, 196, 196, 196, 196, 217, 0

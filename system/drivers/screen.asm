@@ -1151,7 +1151,7 @@ os_draw_background:
 
 	mov ax, 0920h			; Draw white bar at top
 	mov cx, 80
-	mov bx, 01110000b
+	movzx bx, byte [57001]		; Color from RAM
 	int 10h
 
 	mov dx, 256
@@ -1172,7 +1172,7 @@ os_draw_background:
 
 	mov ax, 0920h			; Draw white bar at top
 	mov cx, 80
-	mov bx, 01110000b
+	movzx bx, byte [57001]		; Color from RAM
 	int 10h
 
 	mov16 dx, 1, 24

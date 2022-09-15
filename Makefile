@@ -11,7 +11,7 @@ SONGS := $(patsubst %.mus,%.mmf,$(sort $(wildcard live/*.mus)))
 DROS := $(patsubst %.dro,%.drz,$(sort $(wildcard live/*.dro)))
 
 # This selects all files to copy to the final image.
-FILEDIRS := program/*.bas program/*.dat live/*.pcx live/*.rad live/*.asc source/sys/*.sys
+FILEDIRS := program/*.bas program/*.dat live/*.pcx live/*.rad live/*.asc
 FILES := $(PROGRAMS) $(SONGS) $(DROS) $(foreach dir,$(FILEDIRS),$(sort $(wildcard $(dir))))
 
 # Default target: build the image and boot it.
@@ -55,8 +55,8 @@ image/crepeos.flp: system/osldr/osldr.bin system/crepeos.sys \
 	dd status=noxfer conv=notrunc if=system/osldr/osldr.bin of=image/crepeos.flp
 	
 	mcopy -i $@ system/crepeos.sys ::crepeos.sys
-	mcopy -i $@ system/sys/font.sys ::font.sys
-	mcopy -i $@ system/sys/bg.sys ::bg.sys
+	mcopy -i $@ system/menu/font.sys ::font.sys
+	mcopy -i $@ system/menu/bg.sys ::bg.sys
 	$(foreach file,$(FILES),mcopy -i $@ $(file) ::$(notdir $(file));)
 
 	mkisofs -quiet -V 'CREPEOS' -input-charset iso8859-1 -o image/crepeos.iso -b crepeos.flp image/

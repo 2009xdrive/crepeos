@@ -401,7 +401,7 @@ checkformenuloop:
 	je near load_fileman		; Open the file manager
 	jmp checkformenuloop
 	
-	ver_msg			db '                                                              v0.7b2',0
+	ver_msg			db '                                                              v0.7b3',0
 	passwordmsg		db 'Press any key to log in...', 0
 	passentermsg		db 'Enter your password: ', 0
 

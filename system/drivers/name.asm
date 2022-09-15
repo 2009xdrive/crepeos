@@ -1,2 +1,2 @@
 
-	osname	db 'CrepeOS v0.7b2', 0
+	osname	db 'CrepeOS v0.7b3', 0

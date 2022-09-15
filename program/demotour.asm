@@ -409,43 +409,43 @@ os_demotour:
 	.t6l1				db 'Enjoy your new PC!', 0
 	.t6l2				db 'Press OK to continue to the Lock Screen.', 0
 	
-	.list0				db ' Start    ', 0
+	.list0				db ' Welcome  ', 0
 	.list1				db ' Intro    ', 0
-	.list2				db ' Win. #1  ', 0
-	.list3				db ' Win. #2  ', 0
-	.list4				db ' Win. #3  ', 0
-	.list5				db ' Win. #4  ', 0
+	.list2				db ' Tutor 1  ', 0
+	.list3				db ' Tutor 2  ', 0
+	.list4				db ' Tutor 3  ', 0
+	.list5				db ' Tutor 4  ', 0
 	.list6				db ' Speaker  ', 0
-	.list7				db ' Username ', 0
+	.list7				db ' Name     ', 0
 	.list8				db ' Password ', 0
-	.list9				db ' Complete ', 0
+	.list9				db ' Done!    ', 0
 	
-	.continue			db ' Press any key to continue...', 0
+	.continue			db ' Press any key to continue.', 0
 	
-	.enablepass_msg1	db 'Do you wish to set up a password?', 0
+	.enablepass_msg1	db 'Would you like to set a password?', 0
 	
 	.adlib_msg			db 'Some applications may want to play multi-channel music.', 0
-	.adlib_msg2			db 'Which sound device would you want to use?', 0
+	.adlib_msg2			db 'Which sound device should the system use?', 0
 	
 	.adlib_list			db 'Standard Adlib card (ports 0x388-0x389),9-voice PC speaker square wave generator (PWM),9-voice PC speaker square wave generator (PWM - max volume)', 0
 
-	.password_msg		db 'Enter a new password (32 chars max.):', 0
-	.name_msg			db 'Please enter your name (32 chars max.):', 0
+	.password_msg			db 'Enter a new password (32 chars max.):', 0
+	.name_msg			db 'Please enter your name:', 0
 	
 	.donemsg1			db 'Changes have been saved.', 0
-	.donemsg2			db 'If you wish to change anything, choose', 0
-	.donemsg3			db 'the Settings app from the main menu.', 0
+	.donemsg2			db 'If you wish to change settings, choose', 0
+	.donemsg3			db 'the Settings app from the system menu.', 0
 	
-	.errmsg1			db 'Error writing to the disk!', 0
-	.errmsg2			db 'Make sure it is not read only!', 0
+	.errmsg1			db 'Error writing to the disk.', 0
+	.errmsg2			db 'Make sure it is not read only.', 0
 	
-	.title_msg			db 'CrepeOS Demo tour & Initial setup', 0
+	.title_msg			db 'CrepeOS Initial Setup', 0
 	.footer_msg			db 0
 
 	.config_name		db 'SYSTEM.CFG', 0
 
 	.test_data_bgcolor	db 9Fh
-	.test_data_wincolor	db 4Fh
+	.test_data_wincolor	db 1Fh
 	.test_pass_enabled	db 0
 	.test_pass_data		times 33 db 0
 	.test_username		db 'Test'
