@@ -6,12 +6,12 @@
 .PHONY: clean boot bootdebug
 
 # This selects all programs and music files to be built.
-PROGRAMS := $(patsubst %.asm,%.app,$(sort $(wildcard program/*.asm)))
-SONGS := $(patsubst %.mus,%.mmf,$(sort $(wildcard live/*.mus)))
-DROS := $(patsubst %.dro,%.drz,$(sort $(wildcard live/*.dro)))
+PROGRAMS := $(patsubst %.asm,%.app,$(sort $(wildcard live/program/*.asm)))
+SONGS := $(patsubst %.mus,%.mmf,$(sort $(wildcard live/media1m/*.mus)))
+DROS := $(patsubst %.dro,%.drz,$(sort $(wildcard live/media1m/*.dro)))
 
 # This selects all files to copy to the final image.
-FILEDIRS := program/*.bas program/*.dat live/*.pcx live/*.rad live/*.asc
+FILEDIRS := live/program/*.bas live/program/*.dat live/media1i/*.pcx live/media1m/*.rad live/media1i/*.asc
 FILES := $(PROGRAMS) $(SONGS) $(DROS) $(foreach dir,$(FILEDIRS),$(sort $(wildcard $(dir))))
 
 # Default target: build the image and boot it.
@@ -24,39 +24,39 @@ force: clean build
 dev: image/crepeos.flp bootdebug
 
 # Bootloader target
-system/osldr/osldr.bin: system/osldr/osldr.asm
-	nasm -O2 -w+orphan-labels -f bin -o system/osldr/osldr.bin system/osldr/osldr.asm
+live/system/osldr/osldr.bin: live/system/osldr/osldr.asm
+	nasm -O2 -w+orphan-labels -f bin -o live/system/osldr/osldr.bin live/system/osldr/osldr.asm
 
 # Kernel target
-system/crepeos.sys: system/system.asm system/drivers/*.asm
-	nasm -O2 -w+orphan-labels -f bin -I system/ -o system/crepeos.sys system/system.asm -l system/system.lst
+live/system/crepeos.sys: live/system/system.asm live/system/drivers/*.asm
+	nasm -O2 -w+orphan-labels -f bin -I live/system/ -o live/system/crepeos.sys live/system/system.asm -l live/system/system.lst
 
 # Assembles all programs.
 # Note: % means file name prefix, $@ means output file and $< means source file.
-program/%.app: program/%.asm program/%/*.asm program/crepeos.inc
-	nasm -O2 -w+orphan-labels -f bin -I program/ -o $@ $< #-l $@.lst
+live/program/%.app: live/program/%.asm live/program/%/*.asm live/program/crepeos.inc
+	nasm -O2 -w+orphan-labels -f bin -I live/program/ -o $@ $< #-l $@.lst
 	
-program/%.app: program/%.asm program/crepeos.inc
-	nasm -O2 -w+orphan-labels -f bin -I program/ -o $@ $< #-l $@.lst
+live/program/%.app: live/program/%.asm live/program/crepeos.inc
+	nasm -O2 -w+orphan-labels -f bin -I live/program/ -o $@ $< #-l $@.lst
 
 # Assembles all songs.
-live/%.mmf: live/%.mus live/notelist.txt
-	nasm -O2 -w+orphan-labels -f bin -I live/ -o $@ $<
+live/media1m/%.mmf: live/media1m/%.mus live/media1m/notelist.txt
+	nasm -O2 -w+orphan-labels -f bin -I live/media1m/ -o $@ $<
 
 live/%.drz: live/%.dro
 	misc/compress $< $@
 
 # Builds the image.
-image/crepeos.flp: system/osldr/osldr.bin system/crepeos.sys \
+image/crepeos.flp: live/system/osldr/osldr.bin live/system/crepeos.sys \
 					$(PROGRAMS) $(SONGS) $(DROS)
 	-rm image/*
 
 	dd if=/dev/zero of=image/crepeos.flp bs=512 count=2880
-	dd status=noxfer conv=notrunc if=system/osldr/osldr.bin of=image/crepeos.flp
+	dd status=noxfer conv=notrunc if=live/system/osldr/osldr.bin of=image/crepeos.flp
 	
-	mcopy -i $@ system/crepeos.sys ::crepeos.sys
-	mcopy -i $@ system/menu/font.sys ::font.sys
-	mcopy -i $@ system/menu/bg.sys ::bg.sys
+	mcopy -i $@ live/system/crepeos.sys ::crepeos.sys
+	mcopy -i $@ live/system/menu/font.sys ::font.sys
+	mcopy -i $@ live/system/menu/bg.sys ::bg.sys
 	$(foreach file,$(FILES),mcopy -i $@ $(file) ::$(notdir $(file));)
 
 	mkisofs -quiet -V 'CREPEOS' -input-charset iso8859-1 -o image/crepeos.iso -b crepeos.flp image/
@@ -64,15 +64,16 @@ image/crepeos.flp: system/osldr/osldr.bin system/crepeos.sys \
 # Removes all of the built pieces.
 clean:
 	-rm image/*
-	-rm program/*.app
-	-rm program/*.lst
-	-rm live/*.drz
-	-rm live/*.mmf
-	-rm system/*.sys
-	-rm system/osldr/*.bin
+	-rm live/program/*.app
+	-rm live/program/*.lst
+	-rm live/media1m/*.drz
+	-rm live/media1m/*.mmf
+	-rm live/system/*.sys
+	-rm live/system/osldr/*.bin
 	
 # Boots the floppy.
 boot:
+	echo "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to CrepeOS. Booting now..."
 	qemu-system-x86_64 -cdrom image/crepeos.iso
 
 # Boots the floppy with dosbox-debug.
