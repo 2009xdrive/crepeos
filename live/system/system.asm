@@ -401,12 +401,12 @@ checkformenuloop:
 	je near load_fileman		; Open the file manager
 	jmp checkformenuloop
 	
-	ver_msg			db '                                                              v0.7b3',0
+	ver_msg			db '                                                              v0.8b1',0
 	passwordmsg		db 'Press any key to log in...', 0
 	passentermsg		db 'Enter your password: ', 0
 
 	os_init_msg			db 'crepeOS Desktop', 0
-	os_version_msg		db '[Space] Open the system menu [A] Open the file manager', 0
+	os_version_msg		db '[Space] Open the system menu [F] Open the file manager', 0
 
 ; TODO: THE FOLLOWING CODE NEEDS TO BE REWRITTEN
 	
